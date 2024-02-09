@@ -4,6 +4,29 @@ import Image from "next/image";
 import {points} from "@/util";
 import {useState} from "react";
 
+const Point = ({point}: any) => {
+  const [hover, setHover] = useState(false)
+
+  return (
+    // on hover, display a tooltip with the point's count
+    <div
+      className={`${hover ? 'bg-purple-700' : (point.ok ? "bg-green-500" : "bg-red-500") + ' bg-opacity-70'} absolute w-4 h-4 rounded-full`}
+      style={{
+        left: `${point.x - 2}%`,
+        top: `${point.y - 2}%`,
+      }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      {hover && (
+        <div className="absolute bottom-4 left-0 bg-blue-500 p-1 rounded z-10">
+          {point.count}
+        </div>
+      )}
+    </div>
+  )
+}
+
 export default function Dashboard() {
   return (
     <div className="flex h-screen bg-gray-100">
@@ -111,10 +134,7 @@ export default function Dashboard() {
             </button>
             <div className="relative">
               <button className="relative block h-8 w-8 rounded-full overflow-hidden shadow focus:outline-none">
-                <img
-                  src="https://randomuser.me/api/portraits"
-                  alt="Your avatar"
-                />
+
               </button>
             </div>
           </div>
@@ -128,30 +148,7 @@ export default function Dashboard() {
                   {/* A placeholder map with some dots in random places*/}
                   <div className="w-[50rem] h-[28rem] bg-black rounded relative">
                     <Image src="/map.png" alt="map" layout="fill"/>
-                    {points.map((point, index) => {
-                      const [hover, setHover] = useState(false)
-
-                      return (
-                        // on hover, display a tooltip with the point's count
-                        <div
-                          key={index}
-                          className={`${hover ? 'bg-purple-700' : (point.ok ? "bg-green-500" : "bg-red-500") + ' bg-opacity-70'} absolute w-4 h-4 rounded-full`}
-                          style={{
-                            left: `${point.x - 2}%`,
-                            top: `${point.y - 2}%`,
-                          }}
-                          onMouseEnter={() => setHover(true)}
-                          onMouseLeave={() => setHover(false)}
-                        >
-                          {hover && (
-                            <div className="absolute bottom-4 left-0 bg-blue-500 p-1 rounded z-10">
-                              {point.count}
-                            </div>
-                          )}
-                        </div>
-                      )
-                    })
-                    }
+                    {points.map(point => <Point point={point}/>)}
                   </div>
                 </div>
               </div>
