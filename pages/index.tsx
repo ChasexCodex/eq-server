@@ -148,7 +148,7 @@ export default function Dashboard() {
                   {/* A placeholder map with some dots in random places*/}
                   <div className="w-[50rem] h-[28rem] bg-black rounded relative">
                     <Image src="/map.png" alt="map" layout="fill"/>
-                    {points.map(point => <Point point={point}/>)}
+                    {points.map((point, i) => <Point key={i} point={point}/>)}
                   </div>
                 </div>
               </div>
