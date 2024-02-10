@@ -240,7 +240,7 @@ export default function Dashboard() {
                     <th className="text-left text-gray-600">Responded Ok</th>
                     <th className="text-left text-gray-600">Responded Danger</th>
                     <th className="text-left text-gray-600">Ok Percentage</th>
-                    <th className="text-left text-gray-600">Status</th>
+                    <th className="text-left text-gray-600">Priority</th>
                   </tr>
                   </thead>
                   <tbody className="mt-4">
@@ -296,7 +296,7 @@ export default function Dashboard() {
                           <div className="flex items-center">
                             <div>
                               <p
-                                className="text-gray-900 whitespace-no-wrap">{point.ok.yes / (point.ok.no + point.ok.yes) > 0.5 ? 'OK' : 'Danger'}</p>
+                                className="text-gray-900 whitespace-no-wrap">{i + 1}</p>
                             </div>
                           </div>
                         </td>
