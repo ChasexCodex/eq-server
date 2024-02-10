@@ -1,5 +1,6 @@
 // a dashboard page with a side navigation bar and a main content area
-
+// ts ignore all
+// @ts-ignore
 import Image from "next/image";
 import {makePoints} from "@/util";
 import {useEffect, useReducer, useState} from "react";

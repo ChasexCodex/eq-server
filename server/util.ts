@@ -1,4 +1,5 @@
 // generate 100 points between 25 and 60 for x and 30 and 65 for y
+// @ts-ignore
 
 export const makePoints = (length = 200) => {
   return Array.from({length}, () => ({
