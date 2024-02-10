@@ -1,5 +1,4 @@
 // a dashboard page with a side navigation bar and a main content area
-// ts ignore all
 // @ts-ignore
 import Image from "next/image";
 import {makePoints} from "@/util";
@@ -179,7 +178,9 @@ export default function Dashboard() {
                   {/* A placeholder map with some dots in random places*/}
                   <div className="w-[50rem] h-[28rem] bg-black rounded relative">
                     <Image src="/map.png" alt="map" layout="fill"/>
-                    {points
+                    {
+                      // @ts-ignore
+                      points
                       .map((point, i) => ({point, index: i}))
                       .slice(0, currentCount)
                       .toSorted(({point: point1}, {point: point2}) => point1.ok.no > point2.ok.no ? -1 : 1)
@@ -235,7 +236,9 @@ export default function Dashboard() {
                   </tr>
                   </thead>
                   <tbody className="mt-4">
-                  {points
+                  {
+                    // @ts-ignore
+                    points
                     .map((point, i) => ({point, index: i}))
                     .slice(0, currentCount)
                     .toSorted(({point: point1}, {point: point2}) => point1.ok.no > point2.ok.no ? -1 : 1)
