@@ -183,7 +183,7 @@ export default function Dashboard() {
                       points
                       .map((point, i) => ({point, index: i}))
                       .slice(0, currentCount)
-                      .toSorted(({point: point1}, {point: point2}) => point1.ok.no > point2.ok.no ? -1 : 1)
+                      .sort(({point: point1}, {point: point2}) => point1.ok.no > point2.ok.no ? -1 : 1)
                       .map(({point}, i) => <Point key={i} point={point} index={i} currentCount={currentCount}/>)}
                   </div>
                   <div className="absolute right-4 bottom-4 flex flex-col space-y-2 border bg-gray-100 p-2 rounded">
@@ -241,7 +241,7 @@ export default function Dashboard() {
                     points
                     .map((point, i) => ({point, index: i}))
                     .slice(0, currentCount)
-                    .toSorted(({point: point1}, {point: point2}) => point1.ok.no > point2.ok.no ? -1 : 1)
+                    .sort(({point: point1}, {point: point2}) => point1.ok.no > point2.ok.no ? -1 : 1)
                     .map(({point, index}, i) => (
                       // interpolate the background color between greed and red based on the percentage of people who responded ok
                       <tr key={i}
