@@ -1,12 +1,24 @@
 import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {AntDesign, Entypo} from '@expo/vector-icons';
-import {useState} from "react";
-import {getLocation, postState, random} from "./util";
+import {useEffect, useState} from "react";
+import {getLocation, postState} from "./util";
+import {ref, onValue} from "firebase/database";
+import {db} from "./firebase";
+
 
 
 export default function App() {
-  const [danger, setDanger] = useState(!false)
+  const [danger, setDanger] = useState(false)
+
+  useEffect(() => {
+    const re = ref(db, 'state')
+    const c = onValue(re, (snapshot) => {
+      setDanger(snapshot.val() == 'danger')
+    })
+
+    return c
+  }, [])
 
   return (
     <View style={styles.container}>

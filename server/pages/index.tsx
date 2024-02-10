@@ -2,7 +2,8 @@
 // @ts-ignore
 import Image from "next/image";
 import {makePoints} from "@/util";
-import {useEffect, useReducer, useState} from "react";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 const Point = ({point, index, currentCount}: any) => {
   const [hover, setHover] = useState(false)
@@ -55,7 +56,14 @@ export default function Dashboard() {
     }
   }, [danger])
 
-  const toggleDanger = () => setDanger(!danger)
+  const toggleDanger = async () => {
+    try {
+      setDanger(!danger)
+      await axios.post(`/api/danger/`, {state: !danger})
+    } catch (e) {
+      console.error(e)
+    }
+  }
 
 
   return (
