@@ -2,9 +2,9 @@
 
 import {NextApiRequest, NextApiResponse} from 'next';
 import {db} from "@/firebase";
-import {points} from "@/util";
+import {makePoints} from "@/util";
 // @ts-ignore
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  db.ref('indv').set(points)
+  db.ref('indv').set(makePoints(200))
 }
