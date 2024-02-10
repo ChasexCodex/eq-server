@@ -9,3 +9,17 @@ the dashboard collects data about the earthquake from affected people via fireba
 for this prototype, we made a simulation tool that tries to mimic the response of thousands, and tests the functionality on the user side
 by simulating an earthquake.
 
+Libraries used:
+ - Firebase
+ - Next.js
+ - React
+ - React Native / Expo
+ - Axios
+ - Crypto JS
+ - Typescript
+ - Tailwind CSS
+
+Tools used:
+ - Jetbrains Webstorm
+ - GitHub Copilot
+ - Logo Maker
